@@ -44,7 +44,7 @@ func TestCheckRefresh(t *testing.T) {
 	filepath := filepath.Join(path.Dir(filename), "test.log")
 
 	logger, err := NewReLogger(filepath,
-		WithRefreshDuration(5 * time.Second),
+		WithRefreshDuration(5*time.Second),
 		WithPrintableDebug(true))
 	assert.NoError(err)
 
@@ -52,7 +52,7 @@ func TestCheckRefresh(t *testing.T) {
 		time.Sleep(1 * time.Second)
 		logger.Printf("[%s] TestCheckRefresh ", time.Now().Format(time.RFC3339))
 
-		if i % 11 == 0 {
+		if i%11 == 0 {
 
 		}
 	}
@@ -62,7 +62,7 @@ func BenchmarkNewReLogger(b *testing.B) {
 	_, filename, _, _ := runtime.Caller(0)
 	filepath := filepath.Join(path.Dir(filename), "test.log")
 	logger, _ := NewReLogger(filepath,
-		WithRefreshDuration(1 * time.Second),
+		WithRefreshDuration(1*time.Second),
 		WithPrintableDebug(true))
 	for i := 0; i < b.N; i++ {
 		logger.Printf("[%s] BenchmarkNewReLogger ", time.Now().Format(time.RFC3339))

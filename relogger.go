@@ -15,6 +15,7 @@ import (
 )
 
 var (
+	// ErrInvalidParams presents an invalid error.
 	ErrInvalidParams = errors.New("[err] invalid params")
 )
 

@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// Option is to use dependency injection.
 type Option interface {
 	apply(l *ReLogger)
 }
